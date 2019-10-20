@@ -6,4 +6,11 @@ Select Quantity, UntilPrice from [Order Details] order by 2; ---- Siparişin ade
 
 Select CategoryID, CategoryName from Categories order by 2;  ---- Kategori adını
 
-select CategoryID, ProductName, FirstName, LastName, CustomerID, Quantity, QuantityPerUnit from [Order Details] as OD join Products as P on OD.ProductID=P.ProductID join Orders as O on OD.OrderID=O.OrderID Join Employees as E on E.EmployeeID=O.EmployeeID ORDER BY 2;  ---- Bir siparişin hangi çalışan tarafından hangi müşteriye hangi kategorideki üründen hangi fiyattan kaç adet satıldığını listeleyiniz.
+SELECT        dbo.Employees.LastName, dbo.Employees.FirstName, dbo.Employees.TitleOfCourtesy, dbo.Employees.Title, dbo.Employees.HireDate, dbo.Products.UnitsInStock, dbo.Products.UnitPrice, dbo.Products.ProductName, 
+                         dbo.[Order Details].Quantity, dbo.Categories.CategoryName, dbo.Customers.ContactName, dbo.Customers.ContactTitle, dbo.Customers.CompanyName, dbo.Customers.Phone, dbo.[Order Details].UnitPrice AS Expr1
+FROM            dbo.Orders INNER JOIN
+                         dbo.Employees ON dbo.Orders.EmployeeID = dbo.Employees.EmployeeID INNER JOIN
+                         dbo.[Order Details] ON dbo.Orders.OrderID = dbo.[Order Details].OrderID INNER JOIN
+                         dbo.Products ON dbo.[Order Details].ProductID = dbo.Products.ProductID INNER JOIN
+                         dbo.Categories ON dbo.Products.CategoryID = dbo.Categories.CategoryID INNER JOIN
+                         dbo.Customers ON dbo.Orders.CustomerID = dbo.Customers.CustomerID  ---- Bir siparişin hangi çalışan tarafından hangi müşteriye hangi kategorideki üründen hangi fiyattan kaç adet satıldığını listeleyiniz.
