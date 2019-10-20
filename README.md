@@ -1,4 +1,4 @@
-lSELECT FirstName, LastName, BirthDate FROM employees order by 2; ---- Çalışanın adı, soyadı, ünvanı, görevi, işe başlama tarihi
+SELECT FirstName, LastName, BirthDate FROM employees order by 2; ---- Çalışanın adı, soyadı, ünvanı, görevi, işe başlama tarihi
 select CategoryID, CategoryName, FirstName, Phone from categories ----- Müşterinin firma adını, temsilcisini ve telefonunu
 
 
